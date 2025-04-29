@@ -19,9 +19,7 @@ class EthrexExceptionMapper(ExceptionMapper):
         TransactionException.PRIORITY_GREATER_THAN_MAX_FEE_PER_GAS: (
             "priority fee is greater than max fee"
         ),
-        TransactionException.TYPE_3_TX_CONTRACT_CREATION: "unexpected length",
-        TransactionException.TYPE_3_TX_WITH_FULL_BLOBS: "unexpected list",
-        TransactionException.TYPE_3_TX_INVALID_BLOB_VERSIONED_HASH: "blob version not supported",
+        TransactionException.TYPE_3_TX_INVALID_BLOB_VERSIONED_HASH: "Exceeded MAX_BLOB_GAS_PER_BLOCK",
         TransactionException.TYPE_4_EMPTY_AUTHORIZATION_LIST: "empty authorization list",
         TransactionException.TYPE_4_TX_CONTRACT_CREATION: "unexpected length",
         TransactionException.TYPE_4_TX_PRE_FORK: (
@@ -35,6 +33,7 @@ class EthrexExceptionMapper(ExceptionMapper):
         BlockException.INVALID_STATE_ROOT: "mismatched block state root",
         BlockException.INVALID_BLOCK_HASH: "block hash mismatch",
         BlockException.INVALID_GAS_USED: "block gas used mismatch",
+        BlockException.INCORRECT_BLOB_GAS_USED: "Blob gas used doesn't match value in header"
     }
     mapping_regex = {
         TransactionException.NONCE_MISMATCH_TOO_LOW: r"nonce \d+ too low, expected \d+",
@@ -49,9 +48,14 @@ class EthrexExceptionMapper(ExceptionMapper):
         ),
         BlockException.SYSTEM_CONTRACT_CALL_FAILED: (r"failed to apply .* requests contract call"),
         BlockException.INCORRECT_BLOB_GAS_USED: (
-            r"blob gas used mismatch|blob gas used \d+ is not a multiple of blob gas per blob"
+            r"Blob gas used doesn't match value in header"
         ),
         BlockException.INCORRECT_EXCESS_BLOB_GAS: (
             r"excess blob gas \d+ is not a multiple of blob gas per blob|invalid excess blob gas"
         ),
+        BlockException.RLP_STRUCTURES_ENCODING: (
+            r"Error decoding field 'd+' of type d+"),
+        BlockException.INCORRECT_EXCESS_BLOB_GAS: (
+            r".* Excess blob gas is incorrect"
+        )
     }
