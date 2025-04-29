@@ -55,7 +55,8 @@ class EthrexExceptionMapper(ExceptionMapper):
             r"Blob gas used doesn't match value in header"
         ),
         BlockException.RLP_STRUCTURES_ENCODING: (
-            r"Error decoding field `\D+` of type \w+.*"),
+            r"Error decoding field '\D+' of type \w+.*"
+        ),
         BlockException.INCORRECT_EXCESS_BLOB_GAS: (
             r".* Excess blob gas is incorrect"
         )
