@@ -19,6 +19,7 @@ class EthrexExceptionMapper(ExceptionMapper):
             "priority fee is greater than max fee"
         ),
         TransactionException.TYPE_3_TX_MAX_BLOB_GAS_ALLOWANCE_EXCEEDED: "Exceeded MAX_BLOB_GAS_PER_BLOCK",
+        TransactionException.TYPE_3_TX_INVALID_BLOB_VERSIONED_HASH: "Invalid Transaction: blob version not supported",
         TransactionException.TYPE_4_EMPTY_AUTHORIZATION_LIST: "empty authorization list",
         TransactionException.TYPE_4_TX_CONTRACT_CREATION: "unexpected length",
         TransactionException.TYPE_4_TX_PRE_FORK: (
