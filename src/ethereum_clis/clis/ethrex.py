@@ -34,6 +34,9 @@ class EthrexExceptionMapper(ExceptionMapper):
         TransactionException.TYPE_3_TX_INVALID_BLOB_VERSIONED_HASH: (
             "Invalid Transaction: blob version not supported"
         ),
+        TransactionException.INTRINSIC_GAS_TOO_LOW: (
+            "Invalid Transaction: gas floor exceeds the gas limit"
+        ),
         BlockException.INVALID_REQUESTS: "mismatched block requests hash",
         BlockException.INVALID_RECEIPTS_ROOT: "receipt root mismatch",
         BlockException.INVALID_STATE_ROOT: "mismatched block state root",
@@ -43,9 +46,6 @@ class EthrexExceptionMapper(ExceptionMapper):
     }
     mapping_regex = {
         TransactionException.NONCE_MISMATCH_TOO_LOW: r"nonce \d+ too low, expected \d+",
-        TransactionException.INTRINSIC_GAS_TOO_LOW: (
-            r"(call gas cost|gas floor) \(\d+\) exceeds the gas limit \(\d+\)"
-        ),
         TransactionException.TYPE_3_TX_MAX_BLOB_GAS_ALLOWANCE_EXCEEDED: (
             r"blob gas used \d+ exceeds maximum allowance \d+"
         ),
