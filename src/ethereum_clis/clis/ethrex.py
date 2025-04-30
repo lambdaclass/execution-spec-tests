@@ -37,7 +37,6 @@ class EthrexExceptionMapper(ExceptionMapper):
         BlockException.INVALID_REQUESTS: "Requests hash does not match the one in the header after executing",
         BlockException.INVALID_RECEIPTS_ROOT: "Receipts Root does not match the one in the header after executing",
         BlockException.INVALID_STATE_ROOT: "World State Root does not match the one in the header after executing",
-        BlockException.INVALID_BLOCK_HASH: "block hash mismatch",
         BlockException.INVALID_GAS_USED: "Gas used doesn't match value in header",
         BlockException.INCORRECT_BLOB_GAS_USED: "Blob gas used doesn't match value in header"
     }
@@ -66,5 +65,8 @@ class EthrexExceptionMapper(ExceptionMapper):
         ),
         BlockException.INCORRECT_EXCESS_BLOB_GAS: (
             r".* Excess blob gas is incorrect"
+        ),
+        BlockException.INVALID_BLOCK_HASH: (
+            r"Invalid block hash. Expected \D+, got \D+"
         )
     }
