@@ -34,9 +34,6 @@ class EthrexExceptionMapper(ExceptionMapper):
         TransactionException.TYPE_3_TX_INVALID_BLOB_VERSIONED_HASH: (
             "Invalid Transaction: blob version not supported"
         ),
-        TransactionException.INTRINSIC_GAS_TOO_LOW: (
-            "Invalid Transaction: gas floor exceeds the gas limit"
-        ),
         BlockException.INVALID_REQUESTS: "mismatched block requests hash",
         BlockException.INVALID_RECEIPTS_ROOT: "receipt root mismatch",
         BlockException.INVALID_STATE_ROOT: "mismatched block state root",
@@ -54,6 +51,9 @@ class EthrexExceptionMapper(ExceptionMapper):
         ),
         TransactionException.INSUFFICIENT_ACCOUNT_FUNDS: (
             r"Invalid Transaction: lack of funds \(\d+\) for max fee \(\d+\)"
+        ),
+        TransactionException.INTRINSIC_GAS_TOO_LOW: (
+            r"Invalid Transaction: gas floor exceeds the gas limit|Invalid Transaction: call gas cost exceeds the gas limit"
         ),
         BlockException.SYSTEM_CONTRACT_CALL_FAILED: (
             r"failed to apply .* requests contract call"
