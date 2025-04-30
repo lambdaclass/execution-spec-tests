@@ -34,11 +34,11 @@ class EthrexExceptionMapper(ExceptionMapper):
         TransactionException.TYPE_3_TX_INVALID_BLOB_VERSIONED_HASH: (
             "Invalid Transaction: blob version not supported"
         ),
-        BlockException.INVALID_REQUESTS: "mismatched block requests hash",
-        BlockException.INVALID_RECEIPTS_ROOT: "receipt root mismatch",
-        BlockException.INVALID_STATE_ROOT: "mismatched block state root",
+        BlockException.INVALID_REQUESTS: "Requests hash does not match the one in the header after executing",
+        BlockException.INVALID_RECEIPTS_ROOT: "Receipts Root does not match the one in the header after executing",
+        BlockException.INVALID_STATE_ROOT: "World State Root does not match the one in the header after executing",
         BlockException.INVALID_BLOCK_HASH: "block hash mismatch",
-        BlockException.INVALID_GAS_USED: "block gas used mismatch",
+        BlockException.INVALID_GAS_USED: "Gas used doesn't match value in headerh",
         BlockException.INCORRECT_BLOB_GAS_USED: "Blob gas used doesn't match value in header"
     }
     mapping_regex = {
