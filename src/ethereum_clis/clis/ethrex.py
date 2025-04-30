@@ -46,7 +46,7 @@ class EthrexExceptionMapper(ExceptionMapper):
             r"blob transactions present in pre-cancun payload|empty blobs"
         ),
         TransactionException.INSUFFICIENT_ACCOUNT_FUNDS: (
-            r"Invalid Transaction: lack of funds (\d+) for max fee (\d+)"
+            r"Invalid Transaction: lack of funds \(\d+\) for max fee \(\d+\)"
         ),
         BlockException.SYSTEM_CONTRACT_CALL_FAILED: (
             r"failed to apply .* requests contract call"
