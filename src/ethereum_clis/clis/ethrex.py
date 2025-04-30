@@ -28,6 +28,12 @@ class EthrexExceptionMapper(ExceptionMapper):
         TransactionException.INVALID_DEPOSIT_EVENT_LAYOUT: (
             "failed to decode deposit requests from receipts"
         ),
+        TransactionException.TYPE_3_TX_PRE_FORK: (
+            "Invalid Transaction: blob versioned hashes not supported"
+        ),
+        TransactionException.TYPE_3_TX_INVALID_BLOB_VERSIONED_HASH: (
+            "Invalid Transaction: blob version not supported"
+        ),
         BlockException.INVALID_REQUESTS: "mismatched block requests hash",
         BlockException.INVALID_RECEIPTS_ROOT: "receipt root mismatch",
         BlockException.INVALID_STATE_ROOT: "mismatched block state root",
