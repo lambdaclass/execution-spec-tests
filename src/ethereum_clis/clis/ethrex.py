@@ -67,6 +67,6 @@ class EthrexExceptionMapper(ExceptionMapper):
             r".* Excess blob gas is incorrect"
         ),
         BlockException.INVALID_BLOCK_HASH: (
-            r"Invalid block hash. Expected \D+, got \D+"
+            r"Invalid block hash. Expected \w+, got \w+"
         )
     }
