@@ -48,7 +48,7 @@ class EthrexExceptionMapper(ExceptionMapper):
             r"blob transactions present in pre-cancun payload|empty blobs"
         ),
         TransactionException.INSUFFICIENT_ACCOUNT_FUNDS: (
-            r"lack of funds \(\d+\) for max fee \(\d+\)"
+            r"lack of funds \(\d+\) for max fee \(\d+\)|Insufficient account founds"
         ),
         TransactionException.INTRINSIC_GAS_TOO_LOW: (
             r"gas floor exceeds the gas limit|call gas cost exceeds the gas limit|Intrinsic gas too low"
