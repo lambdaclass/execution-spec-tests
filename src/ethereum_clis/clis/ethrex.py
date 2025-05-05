@@ -49,7 +49,7 @@ class EthrexExceptionMapper(ExceptionMapper):
             r"gas floor exceeds the gas limit|call gas cost exceeds the gas limit|Intrinsic gas too low"
         ),
         TransactionException.INSUFFICIENT_MAX_FEE_PER_GAS: (
-            r"gas price is less than basefee|Insufficient max fee per gas "
+            r"gas price is less than basefee|Insufficient max fee per gas"
         ),
         TransactionException.INSUFFICIENT_MAX_FEE_PER_BLOB_GAS: (
             r"blob gas price is greater than max fee per blob gas|Insufficient max fee per blob gas"
