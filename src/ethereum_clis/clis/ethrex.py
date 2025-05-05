@@ -17,7 +17,7 @@ class EthrexExceptionMapper(ExceptionMapper):
             "eip 7702 transactions present in pre-prague payload"
         ),
         TransactionException.INVALID_DEPOSIT_EVENT_LAYOUT: (
-            "failed to decode deposit requests from receipts"
+            "Requests hash does not match the one in the header after executing"
         ),
         BlockException.INVALID_REQUESTS: "Requests hash does not match the one in the header after executing",
         BlockException.INVALID_RECEIPTS_ROOT: "Receipts Root does not match the one in the header after executing",
