@@ -7,7 +7,6 @@ class EthrexExceptionMapper(ExceptionMapper):
     """Ethrex exception mapper."""
 
     mapping_substring = {
-        TransactionException.INSUFFICIENT_MAX_FEE_PER_GAS: "gas price is less than basefee",
         TransactionException.PRIORITY_GREATER_THAN_MAX_FEE_PER_GAS: (
             "priority fee is greater than max fee"
         ),
@@ -19,9 +18,6 @@ class EthrexExceptionMapper(ExceptionMapper):
         ),
         TransactionException.INVALID_DEPOSIT_EVENT_LAYOUT: (
             "failed to decode deposit requests from receipts"
-        ),
-        TransactionException.TYPE_3_TX_INVALID_BLOB_VERSIONED_HASH: (
-            "blob version not supported"
         ),
         BlockException.INVALID_REQUESTS: "Requests hash does not match the one in the header after executing",
         BlockException.INVALID_RECEIPTS_ROOT: "Receipts Root does not match the one in the header after executing",
@@ -40,7 +36,9 @@ class EthrexExceptionMapper(ExceptionMapper):
         TransactionException.TYPE_3_TX_ZERO_BLOBS: (
             r"blob transactions present in pre-cancun payload|empty blobs|Type3TxZeroBlobs"
         ),
-        TransactionException.TYPE_3_TX_INVALID_BLOB_VERSIONED_HASH: r"blob version not supported|Type3TxInvalidBlobVersionedHash",
+        TransactionException.TYPE_3_TX_INVALID_BLOB_VERSIONED_HASH: (
+            r"blob version not supported|Type3TxInvalidBlobVersionedHash"
+        ),
         TransactionException.TYPE_3_TX_PRE_FORK: (
             r"blob versioned hashes not supported|Type 3 transactions are not supported before the Cancun fork"
         ),
@@ -49,6 +47,9 @@ class EthrexExceptionMapper(ExceptionMapper):
         ),
         TransactionException.INTRINSIC_GAS_TOO_LOW: (
             r"gas floor exceeds the gas limit|call gas cost exceeds the gas limit|Intrinsic gas too low"
+        ),
+        TransactionException.INSUFFICIENT_MAX_FEE_PER_GAS: (
+            r"gas price is less than basefee|Insufficient max fee per gas "
         ),
         TransactionException.INSUFFICIENT_MAX_FEE_PER_BLOB_GAS: (
             r"blob gas price is greater than max fee per blob gas|Insufficient max fee per blob gas"
