@@ -10,7 +10,6 @@ class EthrexExceptionMapper(ExceptionMapper):
         TransactionException.SENDER_NOT_EOA: (
             "reject transactions from senders with deployed code"
         ),
-        TransactionException.INITCODE_SIZE_EXCEEDED: "create initcode size limit",
         TransactionException.INSUFFICIENT_MAX_FEE_PER_GAS: "gas price is less than basefee",
         TransactionException.INSUFFICIENT_MAX_FEE_PER_BLOB_GAS: (
             "blob gas price is greater than max fee per blob gas"
@@ -53,6 +52,9 @@ class EthrexExceptionMapper(ExceptionMapper):
         ),
         TransactionException.INTRINSIC_GAS_TOO_LOW: (
             r"gas floor exceeds the gas limit|call gas cost exceeds the gas limit|Intrinsic gas too low"
+        ),
+        TransactionException.INITCODE_SIZE_EXCEEDED: (
+            r"create initcode size limit|Initcode size exceeded"
         ),
         BlockException.SYSTEM_CONTRACT_CALL_FAILED: (
             r"failed to apply .* requests contract call"
