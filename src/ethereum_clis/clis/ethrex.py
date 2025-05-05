@@ -19,7 +19,7 @@ class EthrexExceptionMapper(ExceptionMapper):
             "priority fee is greater than max fee"
         ),
         TransactionException.TYPE_3_TX_MAX_BLOB_GAS_ALLOWANCE_EXCEEDED: "Exceeded MAX_BLOB_GAS_PER_BLOCK",
-        TransactionException.TYPE_3_TX_INVALID_BLOB_VERSIONED_HASH: "Invalid Transaction: blob version not supported",
+        TransactionException.TYPE_3_TX_INVALID_BLOB_VERSIONED_HASH: "blob version not supported",
         TransactionException.TYPE_4_EMPTY_AUTHORIZATION_LIST: "empty authorization list",
         TransactionException.TYPE_4_TX_CONTRACT_CREATION: "unexpected length",
         TransactionException.TYPE_4_TX_PRE_FORK: (
@@ -29,10 +29,10 @@ class EthrexExceptionMapper(ExceptionMapper):
             "failed to decode deposit requests from receipts"
         ),
         TransactionException.TYPE_3_TX_PRE_FORK: (
-            "Invalid Transaction: blob versioned hashes not supported"
+            "blob versioned hashes not supported"
         ),
         TransactionException.TYPE_3_TX_INVALID_BLOB_VERSIONED_HASH: (
-            "Invalid Transaction: blob version not supported"
+            "blob version not supported"
         ),
         BlockException.INVALID_REQUESTS: "Requests hash does not match the one in the header after executing",
         BlockException.INVALID_RECEIPTS_ROOT: "Receipts Root does not match the one in the header after executing",
@@ -49,10 +49,10 @@ class EthrexExceptionMapper(ExceptionMapper):
             r"blob transactions present in pre-cancun payload|empty blobs"
         ),
         TransactionException.INSUFFICIENT_ACCOUNT_FUNDS: (
-            r"Invalid Transaction: lack of funds \(\d+\) for max fee \(\d+\)"
+            r"lack of funds \(\d+\) for max fee \(\d+\)"
         ),
         TransactionException.INTRINSIC_GAS_TOO_LOW: (
-            r"Invalid Transaction: gas floor exceeds the gas limit|Invalid Transaction: call gas cost exceeds the gas limit"
+            r"gas floor exceeds the gas limit|call gas cost exceeds the gas limit|Intrinsic gas too low"
         ),
         BlockException.SYSTEM_CONTRACT_CALL_FAILED: (
             r"failed to apply .* requests contract call"
