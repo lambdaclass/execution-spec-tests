@@ -8,14 +8,10 @@ class EthrexExceptionMapper(ExceptionMapper):
 
     mapping_substring = {
         TransactionException.PRIORITY_GREATER_THAN_MAX_FEE_PER_GAS: (
-            "priority fee is greater than max fee"
+            "(?i)priority fee is greater than max fee"
         ),
         TransactionException.TYPE_3_TX_MAX_BLOB_GAS_ALLOWANCE_EXCEEDED: "Exceeded MAX_BLOB_GAS_PER_BLOCK",
-        TransactionException.TYPE_4_EMPTY_AUTHORIZATION_LIST: "empty authorization list",
-        TransactionException.TYPE_4_TX_CONTRACT_CREATION: "unexpected length",
-        TransactionException.TYPE_4_TX_PRE_FORK: (
-            "eip 7702 transactions present in pre-prague payload"
-        ),
+        TransactionException.TYPE_4_EMPTY_AUTHORIZATION_LIST: "(?i)empty authorization list",
         TransactionException.INVALID_DEPOSIT_EVENT_LAYOUT: (
             "Requests hash does not match the one in the header after executing"
         ),
@@ -34,13 +30,19 @@ class EthrexExceptionMapper(ExceptionMapper):
             r"blob gas used \d+ exceeds maximum allowance \d+"
         ),
         TransactionException.TYPE_3_TX_ZERO_BLOBS: (
-            r"blob transactions present in pre-cancun payload|empty blobs|Type3TxZeroBlobs"
+            r"blob transactions present in pre-cancun payload|empty blobs|Type 3 transaction without blobs"
         ),
         TransactionException.TYPE_3_TX_INVALID_BLOB_VERSIONED_HASH: (
-            r"blob version not supported|Type3TxInvalidBlobVersionedHash"
+            r"blob version not supported|Invalid blob versioned hash"
         ),
         TransactionException.TYPE_3_TX_PRE_FORK: (
             r"blob versioned hashes not supported|Type 3 transactions are not supported before the Cancun fork"
+        ),
+        TransactionException.TYPE_4_TX_CONTRACT_CREATION: (
+            r"unexpected length|Contract creation in type 4 transaction"
+        ),
+        TransactionException.TYPE_4_TX_PRE_FORK: (
+            r"eip 7702 transactions present in pre-prague payload|Type 4 transactions are not supported before the Prague fork"
         ),
         TransactionException.INSUFFICIENT_ACCOUNT_FUNDS: (
             r"lack of funds \(\d+\) for max fee \(\d+\)|Insufficient account founds"
