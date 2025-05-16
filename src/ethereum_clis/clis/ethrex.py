@@ -13,7 +13,7 @@ class EthrexExceptionMapper(ExceptionMapper):
         TransactionException.TYPE_3_TX_MAX_BLOB_GAS_ALLOWANCE_EXCEEDED: "Exceeded MAX_BLOB_GAS_PER_BLOCK",
         TransactionException.TYPE_4_EMPTY_AUTHORIZATION_LIST: "(?i)empty authorization list",
         TransactionException.INVALID_DEPOSIT_EVENT_LAYOUT: (
-            "Requests hash does not match the one in the header after executing"
+            "Invalid deposit request layout"
         ),
         BlockException.INVALID_REQUESTS: "Requests hash does not match the one in the header after executing",
         BlockException.INVALID_RECEIPTS_ROOT: "Receipts Root does not match the one in the header after executing",
