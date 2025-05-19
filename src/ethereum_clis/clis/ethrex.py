@@ -22,6 +22,7 @@ class EthrexExceptionMapper(ExceptionMapper):
         ),
         BlockException.INVALID_GAS_USED: "Gas used doesn't match value in header",
         BlockException.INCORRECT_BLOB_GAS_USED: "Blob gas used doesn't match value in header",
+        BlockException.SYSTEM_CONTRACT_CALL_FAILED: "System contract call failed"
     }
     mapping_regex = {
         TransactionException.PRIORITY_GREATER_THAN_MAX_FEE_PER_GAS: (
