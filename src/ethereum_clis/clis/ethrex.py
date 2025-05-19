@@ -72,6 +72,7 @@ class EthrexExceptionMapper(ExceptionMapper):
             r"create initcode size limit|Initcode size exceeded"
         ),
         BlockException.SYSTEM_CONTRACT_CALL_FAILED: (r"failed to apply .* requests contract call"),
+        BlockException.SYSTEM_CONTRACT_EMPTY: (r"System contract: \D+ has no code after deployment"),
         BlockException.INCORRECT_BLOB_GAS_USED: (r"Blob gas used doesn't match value in header"),
         BlockException.RLP_STRUCTURES_ENCODING: (r"Error decoding field '\D+' of type \w+.*"),
         BlockException.INCORRECT_EXCESS_BLOB_GAS: (r".* Excess blob gas is incorrect"),
