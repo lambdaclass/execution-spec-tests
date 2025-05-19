@@ -33,7 +33,10 @@ class EthrexExceptionMapper(ExceptionMapper):
             r"reject transactions from senders with deployed code|"
             r"Sender account should not have bytecode"
         ),
-        TransactionException.NONCE_MISMATCH_TOO_LOW: r"nonce \d+ too low, expected \d+",
+        TransactionException.NONCE_MISMATCH_TOO_LOW: (
+            r"nonce \d+ too low, expected \d+|"
+            r"Nonce mismatch: expected \d+, got \d+"
+        ),
         TransactionException.TYPE_3_TX_MAX_BLOB_GAS_ALLOWANCE_EXCEEDED: (
             r"blob gas used \d+ exceeds maximum allowance \d+"
         ),
