@@ -49,7 +49,7 @@ class EthrexExceptionMapper(ExceptionMapper):
             r"Type 3 transactions are not supported before the Cancun fork"
         ),
         TransactionException.TYPE_4_TX_CONTRACT_CREATION: (
-            r"unexpected length|Contract creation in type 4 transaction"
+            r" InvalidLength|unexpected length|Contract creation in type 4 transaction"
         ),
         TransactionException.TYPE_4_TX_PRE_FORK: (
             r"eip 7702 transactions present in pre-prague payload|"
